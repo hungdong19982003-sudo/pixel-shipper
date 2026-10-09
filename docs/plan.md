@@ -25,6 +25,7 @@
 | **Phase 10** | Chọn đơn theo tuyến đường, chi phí và độ khó | 🚀 Hoàn thành | 2/2 |
 | **Phase 11** | Đơn cá tươi hằng ngày nối bến câu với quán ăn | 🚀 Hoàn thành | 1/1 |
 | **Phase 12** | Đơn ghép và cân bằng giá cửa hàng | 🚀 Hoàn thành | 2/2 |
+| **Phase 13** | Phát hành game để người khác chơi | 🚀 Hoàn thành | 1/1 |
 
 ---
 
@@ -283,3 +284,11 @@
   - Điều chỉnh giá theo thu nhập từ giao hàng, tiền trọ và thưởng phụ; cấp túi 2/3 trở thành khoản đầu tư để mở 2/3 đơn. Điện thoại hiển thị rõ sức chứa và giá mới.
   - Kiểm tra giao dịch đủ/thiếu tiền và build; quyền sở hữu từ bản lưu cũ vẫn giữ nguyên.
   - *Kết quả:* Túi cấp 2/3 giá 180.000đ/460.000đ; Lead 650.000đ, xe điện 1.500.000đ, giá đỡ 130.000đ/330.000đ, nội thất 110.000–360.000đ. Trình duyệt xác nhận thiếu tiền không mua được, trả đúng giá để nhận xe và bonsai vào túi. `npm run build`, `npm run check:city`, `npm run check:social`, `npm run check:week`, `npm run check:delivery` đều đạt. Bản lưu cũ vẫn giữ cấp túi và quyền sở hữu đã có.
+
+---
+
+### 📍 PHASE 13: PHÁT HÀNH WEB
+
+- [x] **Task 13.1: Đưa mã nguồn lên GitHub và phát hành bằng GitHub Pages**
+  - Tạo repository Public `hungdong19982003-sudo/pixel-shipper`, đẩy nhánh `main` và chạy workflow build/deploy.
+  - *Kiểm thử:* `npm run build` đạt; GitHub Actions hoàn thành thành công. Trang `https://hungdong19982003-sudo.github.io/pixel-shipper/` và các asset JavaScript/CSS trả về HTTP 200.
