@@ -2,9 +2,11 @@ import Phaser from 'phaser';
 import { GAME_HEIGHT, GAME_WIDTH, PLAYER_NAME } from '../config/GameConfig';
 import { SaveManager } from '../managers/SaveManager';
 import { OPENING_STORY, StorybookPanel } from './StorybookPanel';
+import { TutorialPanel } from './TutorialPanel';
 
 export class TitleScene extends Phaser.Scene {
   private storybook!: StorybookPanel;
+  private tutorial!: TutorialPanel;
 
   constructor() {
     super({ key: 'TitleScene' });
@@ -48,15 +50,18 @@ export class TitleScene extends Phaser.Scene {
     });
 
     this.storybook = new StorybookPanel(this);
+    this.tutorial = new TutorialPanel();
+    this.events.once('shutdown', () => this.tutorial.destroy());
     const hasSave = SaveManager.getInstance().loadGame() !== null;
     this.createButton(546, 286, 322, 54, hasSave ? '▶  Chơi tiếp' : '▶  Chơi tiếp  •  Chưa có bản lưu',
-      () => this.startCity(false), hasSave);
+      () => this.tutorial.open(() => this.startCity(false)), hasSave);
     this.createButton(546, 356, 322, 54, '✦  Chơi mới', () => {
-      this.storybook.open(OPENING_STORY, () => this.startCity(true));
+      this.storybook.open(OPENING_STORY, () => this.tutorial.open(() => this.startCity(true)));
     }, true, true);
-    this.add.text(547, 442, 'WASD / phím mũi tên để di chuyển  •  E tương tác  •  F lên xe', {
-      fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '8px', color: '#8fa5a2',
-      wordWrap: { width: 320 }
+    this.createButton(546, 424, 322, 42, 'ⓘ  Hướng dẫn chơi', () => this.tutorial.open(), true);
+    this.add.text(58, 455, 'Điều khiển · Giao hàng · Cuộc sống trong phố', {
+      fontFamily: '"Plus Jakarta Sans", sans-serif', fontSize: '9px', color: '#b8c9be',
+      wordWrap: { width: 350 }
     });
   }
 
