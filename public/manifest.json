@@ -1,0 +1,18 @@
+{
+  "name": "Pixel Shipper: Phố Cuối Ngày",
+  "short_name": "Pixel Shipper",
+  "description": "Game mô phỏng cuộc sống Shipper giao đồ ăn pixel art 2D đậm chất Á Đông",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "landscape",
+  "background_color": "#0d0f14",
+  "theme_color": "#0d0f14",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "192x192 512x512",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

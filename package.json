@@ -1,0 +1,23 @@
+{
+  "name": "game1",
+  "private": true,
+  "version": "0.0.0",
+  "type": "module",
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc && vite build",
+    "check:city": "node tests/city-map.cjs",
+    "check:social": "node tests/social-save.cjs",
+    "check:week": "node tests/week-economy.cjs",
+    "check:delivery": "node tests/delivery-planner.cjs",
+    "build:zip": "tsc && vite build && powershell -Command \"Compress-Archive -Path dist/* -DestinationPath pixel-shipper-game.zip -Force\"",
+    "preview": "vite preview"
+  },
+  "devDependencies": {
+    "typescript": "~6.0.2",
+    "vite": "^8.3.0"
+  },
+  "dependencies": {
+    "phaser": "^3.88.2"
+  }
+}
